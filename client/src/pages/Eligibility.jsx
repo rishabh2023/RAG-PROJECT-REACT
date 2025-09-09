@@ -129,14 +129,14 @@ const Eligibility = () => {
             <div>
               <Label htmlFor="monthly-income" className="block text-sm font-medium text-foreground mb-2 flex items-center">
                 <DollarSign className="h-4 w-4 mr-1 text-green-600" />
-                Monthly Income ($)
+                Monthly Income (₹)
               </Label>
               <Input
                 id="monthly-income"
                 type="number"
                 value={formData.monthlyIncome}
                 onChange={(e) => handleInputChange('monthlyIncome', e.target.value)}
-                placeholder="8,500"
+                placeholder="85,000"
                 className="input-focus"
                 data-testid="input-monthly-income"
               />
@@ -145,14 +145,14 @@ const Eligibility = () => {
             <div>
               <Label htmlFor="monthly-obligations" className="block text-sm font-medium text-foreground mb-2 flex items-center">
                 <TrendingUp className="h-4 w-4 mr-1 text-red-600" />
-                Monthly Obligations ($)
+                Monthly Obligations (₹)
               </Label>
               <Input
                 id="monthly-obligations"
                 type="number"
                 value={formData.monthlyObligations}
                 onChange={(e) => handleInputChange('monthlyObligations', e.target.value)}
-                placeholder="1,200"
+                placeholder="12,000"
                 className="input-focus"
                 data-testid="input-monthly-obligations"
               />
@@ -194,14 +194,14 @@ const Eligibility = () => {
             <div className="md:col-span-2">
               <Label htmlFor="loan-amount" className="block text-sm font-medium text-foreground mb-2 flex items-center">
                 <DollarSign className="h-4 w-4 mr-1 text-amber-600" />
-                Desired Loan Amount ($) <span className="text-muted-foreground ml-2">(Optional)</span>
+                Desired Loan Amount (₹) <span className="text-muted-foreground ml-2">(Optional)</span>
               </Label>
               <Input
                 id="loan-amount"
                 type="number"
                 value={formData.loanAmount}
                 onChange={(e) => handleInputChange('loanAmount', e.target.value)}
-                placeholder="450,000"
+                placeholder="45,00,000"
                 className="input-focus"
                 data-testid="input-loan-amount"
               />
@@ -242,7 +242,7 @@ const Eligibility = () => {
               <div className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200">
                 <div className="text-sm text-blue-600 font-medium mb-1">Monthly EMI</div>
                 <div className="text-3xl font-bold text-blue-700" data-testid="text-emi">
-                  ${results.emi ? results.emi.toLocaleString() : 'N/A'}
+                  ₹{results.emi ? results.emi.toLocaleString('en-IN') : 'N/A'}
                 </div>
                 <div className="text-xs text-blue-600 mt-1">Principal + Interest</div>
               </div>
@@ -258,7 +258,7 @@ const Eligibility = () => {
               <div className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200">
                 <div className="text-sm text-purple-600 font-medium mb-1">Eligible Loan Amount</div>
                 <div className="text-3xl font-bold text-purple-700" data-testid="text-eligible-amount">
-                  ${results.eligible_loan_amount ? results.eligible_loan_amount.toLocaleString() : 'N/A'}
+                  ₹{results.eligible_loan_amount ? results.eligible_loan_amount.toLocaleString('en-IN') : 'N/A'}
                 </div>
                 <div className="text-xs text-purple-600 mt-1">Maximum approved amount</div>
               </div>
