@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Settings as SettingsIcon, ExternalLink, Info } from "lucide-react";
+import { Settings as SettingsIcon, ExternalLink, Info, Globe, Key, Server, Shield } from "lucide-react";
 import { getSettings, saveSettings } from "@/lib/storage";
 
 const Settings = () => {
@@ -47,8 +47,11 @@ const Settings = () => {
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-foreground mb-2">API Configuration</h2>
-        <p className="text-muted-foreground">Configure your API settings to connect to the Loan Support backend</p>
+        <h2 className="text-3xl font-bold text-foreground mb-2 flex items-center justify-center">
+          <Server className="h-8 w-8 mr-3 text-primary" />
+          API Configuration
+        </h2>
+        <p className="text-muted-foreground">Configure your API settings to connect to the Loan Support backend securely</p>
       </div>
 
       {/* Configuration Card */}
@@ -61,7 +64,8 @@ const Settings = () => {
           
           <div className="space-y-4">
             <div>
-              <Label htmlFor="api-base" className="block text-sm font-medium text-foreground mb-2">
+              <Label htmlFor="api-base" className="block text-sm font-medium text-foreground mb-2 flex items-center">
+                <Globe className="h-4 w-4 mr-1" />
                 API Base URL
               </Label>
               <Input
@@ -76,7 +80,8 @@ const Settings = () => {
             </div>
             
             <div>
-              <Label htmlFor="bearer-token" className="block text-sm font-medium text-foreground mb-2">
+              <Label htmlFor="bearer-token" className="block text-sm font-medium text-foreground mb-2 flex items-center">
+                <Key className="h-4 w-4 mr-1" />
                 Bearer Token
               </Label>
               <Input
@@ -117,7 +122,7 @@ const Settings = () => {
       <Card className="rounded-2xl shadow-lg card-hover">
         <CardContent className="p-6">
           <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center">
-            <Info className="h-5 w-5 mr-2 text-primary" />
+            <Shield className="h-5 w-5 mr-2 text-primary" />
             Index Information
           </h3>
           

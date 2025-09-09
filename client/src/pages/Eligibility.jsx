@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Calculator, CheckCircle, AlertTriangle } from "lucide-react";
+import { Calculator, CheckCircle, AlertTriangle, DollarSign, Percent, Calendar, TrendingUp, Building } from "lucide-react";
 import { calculateEligibility } from "@/lib/api";
 import LoadingSpinner from "@/components/LoadingSpinner";
 
@@ -110,21 +110,25 @@ const Eligibility = () => {
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-foreground mb-2">Loan Eligibility Calculator</h2>
-        <p className="text-muted-foreground">Calculate your loan eligibility based on financial parameters</p>
+        <h2 className="text-3xl font-bold text-foreground mb-2 flex items-center justify-center">
+          <Calculator className="h-8 w-8 mr-3 text-primary" />
+          Loan Eligibility Calculator
+        </h2>
+        <p className="text-muted-foreground">Calculate your loan eligibility based on comprehensive financial parameters</p>
       </div>
 
       {/* Calculator Form */}
       <Card className="rounded-2xl shadow-lg card-hover">
         <CardContent className="p-6">
           <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center">
-            <Calculator className="h-5 w-5 mr-2 text-primary" />
+            <Building className="h-5 w-5 mr-2 text-primary" />
             Financial Details
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <Label htmlFor="monthly-income" className="block text-sm font-medium text-foreground mb-2">
+              <Label htmlFor="monthly-income" className="block text-sm font-medium text-foreground mb-2 flex items-center">
+                <DollarSign className="h-4 w-4 mr-1 text-green-600" />
                 Monthly Income ($)
               </Label>
               <Input
@@ -139,7 +143,8 @@ const Eligibility = () => {
             </div>
             
             <div>
-              <Label htmlFor="monthly-obligations" className="block text-sm font-medium text-foreground mb-2">
+              <Label htmlFor="monthly-obligations" className="block text-sm font-medium text-foreground mb-2 flex items-center">
+                <TrendingUp className="h-4 w-4 mr-1 text-red-600" />
                 Monthly Obligations ($)
               </Label>
               <Input
@@ -154,7 +159,8 @@ const Eligibility = () => {
             </div>
             
             <div>
-              <Label htmlFor="interest-rate" className="block text-sm font-medium text-foreground mb-2">
+              <Label htmlFor="interest-rate" className="block text-sm font-medium text-foreground mb-2 flex items-center">
+                <Percent className="h-4 w-4 mr-1 text-blue-600" />
                 Interest Rate (% p.a.)
               </Label>
               <Input
@@ -170,7 +176,8 @@ const Eligibility = () => {
             </div>
             
             <div>
-              <Label htmlFor="tenure-months" className="block text-sm font-medium text-foreground mb-2">
+              <Label htmlFor="tenure-months" className="block text-sm font-medium text-foreground mb-2 flex items-center">
+                <Calendar className="h-4 w-4 mr-1 text-purple-600" />
                 Tenure (Months)
               </Label>
               <Input
@@ -185,8 +192,9 @@ const Eligibility = () => {
             </div>
             
             <div className="md:col-span-2">
-              <Label htmlFor="loan-amount" className="block text-sm font-medium text-foreground mb-2">
-                Desired Loan Amount ($) <span className="text-muted-foreground">(Optional)</span>
+              <Label htmlFor="loan-amount" className="block text-sm font-medium text-foreground mb-2 flex items-center">
+                <DollarSign className="h-4 w-4 mr-1 text-amber-600" />
+                Desired Loan Amount ($) <span className="text-muted-foreground ml-2">(Optional)</span>
               </Label>
               <Input
                 id="loan-amount"
